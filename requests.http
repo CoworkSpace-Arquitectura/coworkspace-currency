@@ -1,0 +1,22 @@
+@baseUrl = http://localhost:3009
+
+### 1. Países para el selector de la página
+GET {{baseUrl}}/countries
+
+### 2. Un país
+GET {{baseUrl}}/countries/MX
+
+### 3. Tasas desde COP (primera vez: cached false)
+GET {{baseUrl}}/rates?base=COP
+
+### 4. Otra vez (ahora: cached true, desde Redis)
+GET {{baseUrl}}/rates?base=COP
+
+### 5. Una sala de Bogotá ($60.000 COP) vista desde México
+GET {{baseUrl}}/convert?amount=60000&from=COP&to=MXN
+
+### 6. La sala de México ($350 MXN) vista desde Colombia
+GET {{baseUrl}}/convert?amount=350&from=MXN&to=COP
+
+### 7. Moneda inválida: debe fallar con 400
+GET {{baseUrl}}/convert?amount=100&from=COP&to=PESOS
