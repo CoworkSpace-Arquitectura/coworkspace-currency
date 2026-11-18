@@ -57,4 +57,10 @@ describe('Divisas (integración con la base de datos)', () => {
     const res = await request(app.getHttpServer()).get('/rates?base=COP').expect(200);
     expect(res.body).toMatchObject({ base: 'COP', fallback: true });
   });
+
+  it('publica la documentación de la API (OpenAPI)', async () => {
+    const res = await request(app.getHttpServer()).get('/docs-json').expect(200);
+    expect(res.body.openapi).toBeDefined();
+    expect(Object.keys(res.body.paths).length).toBeGreaterThan(0);
+  });
 });

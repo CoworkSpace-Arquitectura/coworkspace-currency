@@ -7,3 +7,8 @@ Microservicio de países y cambio de divisas. Consulta las tasas a ExchangeRate-
 - **Endpoints:** `/countries`, `/countries/:code`, `/rates?base=COP`, `/convert?amount=60000&from=COP&to=MXN`
 - **Puerto local:** 3009
 - Rates By Exchange Rate API (https://www.exchangerate-api.com)
+
+## Documentación de la API
+
+- Swagger UI desplegado: https://coworkspace-currency.onrender.com/docs
+- En local: http://localhost:<PUERTO>/docs (el JSON OpenAPI está en `/docs-json`).
